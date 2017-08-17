@@ -1,15 +1,25 @@
+import { MembroService } from './membro.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-membro',
-  templateUrl: './membro.component.html',
-  styleUrls: ['./membro.component.css']
+    selector: 'app-membro',
+    templateUrl: './membro.component.html',
+    styleUrls: ['./membro.component.css']
 })
 export class MembroComponent implements OnInit {
 
-  constructor() { }
+    constructor(private membroService: MembroService) {
 
-  ngOnInit() {
-  }
+    }
 
+    public membros;
+
+    ngOnInit() {
+    }
+
+    public obterTodos() {
+
+        this.membros = this.membroService.obterTodos();
+
+    }
 }
